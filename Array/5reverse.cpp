@@ -1,4 +1,4 @@
-// more efficient
+
 #include<iostream>
 using namespace std;
 
