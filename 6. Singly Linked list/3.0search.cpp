@@ -10,11 +10,15 @@ struct Node{
     }
 };
 
-void printlist(Node *head){
+int search(Node *head,int key){
     Node *cur=head;
-    if(cur==NULL){return ;}
-    cout<<cur->data<<endl;
-    return printlist(cur->next);
+    int pos=1;
+    if(cur==NULL){return -1;}
+    while(cur!=NULL){
+        if(cur->data==key){return pos;}
+        else{pos++; cur=cur->next;}
+    }
+    return -1;
 }
 
 int main() 
@@ -23,6 +27,6 @@ int main()
 	head->next=new Node(20);
 	head->next->next=new Node(30);
 	head->next->next->next=new Node(40);
-	printlist(head);
+	cout<<search(head,50);
 	return 0;
 } 
