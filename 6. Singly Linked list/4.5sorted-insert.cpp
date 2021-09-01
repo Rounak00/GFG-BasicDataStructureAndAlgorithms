@@ -9,18 +9,17 @@ struct Node{
         next=NULL;
     }
 };
-Node *ins(Node *head,int val){
-    Node temp=new Node(val);
+Node *ins(Node *head,Node *temp){
+   
     if(head==NULL){
-        head->next=temp;
-        return head;
+         return temp;
     }
-    if(head->data>val){
+    if(head->data>temp->data){
         temp->next=head;
         return temp;
     }
     Node *cur=head;
-    while(cur->next!=NULL && cur->next->data<val){
+    while(cur->next!=NULL && cur->next->data<temp->data){
       cur=cur->next;
     }
     temp->next=cur->next;
@@ -41,7 +40,8 @@ int main()
 	head->next=new Node(20);
 	head->next->next=new Node(30);
 	head->next->next->next=new Node(40);
-   head= ins(head,25);
+	Node *temp=new Node(25);
+   head= ins(head,temp);
 	printlist(head);
 	return 0;
 } 

@@ -12,24 +12,23 @@ struct Node{
 Node *ins(Node *head,int pos,int val){
     if(head==NULL){return head;}
     Node *cur=head;
-    Node temp=new Node(val);
+    Node *temp=new Node(val);
     if(pos==1){
         temp->next=cur;
         return temp;
         }
-    int thispos=2; 
-       
-    while(cur!=NULL){
-       if(pos==thispos){ 
-           temp=cur->next;
-           cur->next=temp;
-           return head;
-           }
-        else{
-            cur=cur->next;
-            thispos++;
-        }   
-    } 
+   int thispos=2;
+   while(cur!=NULL){
+   	if(thispos==pos){
+   		temp->next=cur->next;
+   		cur->next=temp;
+   		return head;
+	   }
+	else{
+	     thispos++;
+		 cur=cur->next;   	
+	   }
+   }
     return head;   
 }
 void printlist(Node *head){
