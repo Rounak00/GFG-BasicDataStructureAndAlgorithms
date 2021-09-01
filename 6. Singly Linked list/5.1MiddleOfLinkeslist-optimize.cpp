@@ -1,4 +1,4 @@
-//Naive approach:-
+//Efficient approach:-
 #include <bits/stdc++.h> 
 using namespace std; 
 
@@ -10,19 +10,17 @@ struct Node{
         next=NULL;
     }
 };
-int midd(Node *head){
-    if(head==NULL){return -1;}
-    int count=0; 
-    Node *cur;
-    for(cur=head;cur!=NULL;cur=cur->next){
-      count++;   
+void midd(Node *head){
+    Node *fast=head;
+	Node *slow=head;
+    if(head==NULL){cout<<-1;}
+    if(head->next==NULL){cout<< 1;}
+   
+    while(fast!=NULL || fast->next!=NULL){
+       fast=fast->next->next;
+       slow=slow->next;
     }
-    cur=head;
-    for(int i=1;i<=count/2;i++){
-      cur=cur->next;
-    }
-    return cur->data;
-
+    cout<< slow->data;
 }
 
 
@@ -32,7 +30,7 @@ int main()
 	head->next=new Node(20);
 	head->next->next=new Node(30);
 	head->next->next->next=new Node(40);
-    cout<<midd(head);
+    midd(head);
 
 	return 0;
 } 
