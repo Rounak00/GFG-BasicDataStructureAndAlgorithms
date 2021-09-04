@@ -37,3 +37,51 @@ int main(){
     inorder(tree);
 }
 //Time= O(N) space=O(H)
+
+/*
+#include<iostream>
+#include<algorithm>
+#include<stack>
+#include<climits>
+using namespace std;
+
+struct Node{
+    int data;
+    Node *left;
+    Node *right;
+    Node(int data){
+      this->data=data;
+      left=NULL;
+      right=NULL;
+    }
+};
+void inorder(Node *root){
+    stack<Node*>s;
+    Node *cur;
+    cur=root;
+    while(s.empty()==false || cur!=NULL){
+        if(cur!=NULL){
+            s.push(cur);
+             cur=cur->left;
+        }
+        else{
+        	cur=s.top();
+        s.pop();
+        cout<<cur->data<<" ";
+        cur=cur->right;
+		}
+        
+    }
+}
+int main(){
+    Node *tree=new Node(10);
+    tree->left=new Node(20);
+     tree->left->left=new Node(30);
+    tree->right=new Node(40);
+    tree->right->left=new Node(50);
+    tree->right->right=new Node(60);
+    inorder(tree);
+}
+//Time= O(N) space=O(H)
+
+*/
