@@ -39,7 +39,20 @@ int main() {
 
 /*
 If we do with hoare:-
-
+int partition(int a[], int l, int h){
+    int p=a[l];
+    int i=l-1; int j=h-1;
+    while(true){
+        do{
+            i++;
+        }while(a[i]<p);
+        do{
+           j++;
+        }while(a[j]>p);
+        if(i>=j)return j;
+        swap(a[i],a[j]);
+    }
+}
 void qSort(int arr[],int l,int h){
     if(l<h){
         int p=partition(arr,l,h);
